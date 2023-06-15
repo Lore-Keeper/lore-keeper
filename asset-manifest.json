@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/lorekeeper-monorepo/static/css/main.073c9b0a.css",
+    "main.js": "/lorekeeper-monorepo/static/js/main.12ed3531.js",
+    "static/js/787.836c9a79.chunk.js": "/lorekeeper-monorepo/static/js/787.836c9a79.chunk.js",
+    "static/media/Face.png": "/lorekeeper-monorepo/static/media/Face.b478c1880f93238fe400.png",
+    "index.html": "/lorekeeper-monorepo/index.html",
+    "main.073c9b0a.css.map": "/lorekeeper-monorepo/static/css/main.073c9b0a.css.map",
+    "main.12ed3531.js.map": "/lorekeeper-monorepo/static/js/main.12ed3531.js.map",
+    "787.836c9a79.chunk.js.map": "/lorekeeper-monorepo/static/js/787.836c9a79.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.12ed3531.js"
+  ]
+}
