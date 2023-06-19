@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
+import LoreLibrary from './LoreLibrary/LoreLibrary';
 
 const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
-  const handleLogin = async (event) => {
+  const handleLogin = async event => {
     event.preventDefault();
 
     setLoading(true);
@@ -20,19 +21,21 @@ const Auth = () => {
   };
 
   return (
-    <div className="row flex flex-center">
-      <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
-        <p className="description">Sign in via magic link with your email below</p>
-        <form className="form-widget" onSubmit={handleLogin}>
+    <div className='row flex flex-center'>
+      <div className='col-6 form-widget'>
+        <h1 className='header'>Supabase + React</h1>
+        <p className='description'>
+          Sign in via magic link with your email below
+        </p>
+        <form className='form-widget' onSubmit={handleLogin}>
           <div>
             <input
-              className="inputField"
-              type="email"
-              placeholder="Your email"
+              className='inputField'
+              type='email'
+              placeholder='Your email'
               value={email}
               required={true}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -42,6 +45,7 @@ const Auth = () => {
           </div>
         </form>
       </div>
+      <LoreLibrary />
     </div>
   );
 };

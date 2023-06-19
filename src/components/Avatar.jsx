@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
-import Icon from '../assets/Face.png';
 import camera from '../assets/camera on.png';
 
 export default function Avatar({ url, size, onUpload }) {
@@ -11,9 +10,11 @@ export default function Avatar({ url, size, onUpload }) {
     if (url) downloadImage(url);
   }, [url]);
 
-  const downloadImage = async (path) => {
+  const downloadImage = async path => {
     try {
-      const { data, error } = await supabase.storage.from('avatars').download(path);
+      const { data, error } = await supabase.storage
+        .from('avatars')
+        .download(path);
       if (error) {
         throw error;
       }
@@ -24,7 +25,7 @@ export default function Avatar({ url, size, onUpload }) {
     }
   };
 
-  const uploadAvatar = async (event) => {
+  const uploadAvatar = async event => {
     try {
       setUploading(true);
 
@@ -37,7 +38,9 @@ export default function Avatar({ url, size, onUpload }) {
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
-      let { error: uploadError } = await supabase.storage.from('avatars').upload(filePath, file);
+      let { error: uploadError } = await supabase.storage
+        .from('avatars')
+        .upload(filePath, file);
 
       if (uploadError) {
         throw uploadError;
@@ -55,7 +58,7 @@ export default function Avatar({ url, size, onUpload }) {
     <div style={{ width: size }}>
       <div>
         <div>
-          <label htmlFor="files"></label>
+          <label htmlFor='files'></label>
           <img
             src={avatarUrl ? avatarUrl : camera}
             alt={avatarUrl ? 'Avatar' : 'No image'}
@@ -66,9 +69,9 @@ export default function Avatar({ url, size, onUpload }) {
           ) : (
             <>
               <input
-                type="file"
-                id="files"
-                accept="image/*"
+                type='file'
+                id='files'
+                accept='image/*'
                 onChange={uploadAvatar}
                 disabled={uploading}
               />
