@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { AppWrapper, GlobalStyle } from './App.styled';
 import { supabase } from './supabaseClient';
-import Auth from './components/Auth';
-import Account from './components/Account';
+import ThemeProvider from './components/app/ThemeProvider/ThemeProvider';
+import Page from './components/app/Page/Page';
+// import Auth from './components/Auth';
+// import Account from './components/Account';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -18,9 +20,17 @@ function App() {
   }, []);
 
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
-    </div>
+    <AppWrapper>
+      <ThemeProvider>
+        <GlobalStyle />
+        <Page />
+        {/* {!session ? (
+        <Auth />
+      ) : (
+        <Account key={session.user.id} session={session} />
+      )} */}
+      </ThemeProvider>
+    </AppWrapper>
   );
 }
 
