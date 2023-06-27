@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AppWrapper, GlobalStyle } from './App.styled';
 import { supabase } from './supabaseClient';
 import ThemeProvider from './components/app/ThemeProvider/ThemeProvider';
+import Page from './components/app/Page/Page';
 // import Auth from './components/Auth';
 // import Account from './components/Account';
 
@@ -22,7 +23,7 @@ function App() {
     <AppWrapper>
       <ThemeProvider>
         <GlobalStyle />
-        <h1>Here's an element with the app wrapper in place</h1>
+        <Page />
         {/* {!session ? (
         <Auth />
       ) : (
